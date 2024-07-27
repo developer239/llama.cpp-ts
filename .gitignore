@@ -5,3 +5,5 @@
 /cpp/cmake-build-debug/
 
 /node_modules/
+
+/example/models

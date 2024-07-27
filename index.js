@@ -1,4 +1,4 @@
-const { LlamaCPP } = require('./build/Release/llamacpp_node_bindings.node');
+const { LlamaCPP } = require('./cpp/build/Release/llamacpp_node_bindings.node');
 const { Readable } = require('stream');
 
 class Llama {
@@ -15,25 +15,18 @@ class Llama {
   }
 
   runQueryStream(prompt, maxTokens = 1000) {
-    return new Promise((resolve, reject) => {
-      const stream = new Readable({
-        read() {}
-      });
-
-      this.llamaCPP.runQueryStream(prompt, (token) => {
-        stream.push(token);
-      }, maxTokens);
-
-      stream.on('end', () => {
-        resolve();
-      });
-
-      stream.on('error', (err) => {
-        reject(err);
-      });
-
-      resolve(stream);
+    const stream = new Readable({
+      read() {}
     });
+
+    this.llamaCPP.runQueryStream(prompt, (token) => {
+      stream.push(token);
+    }, maxTokens);
+
+    // End the stream when the C++ side is done
+    setImmediate(() => stream.push(null));
+
+    return stream;
   }
 }
 
