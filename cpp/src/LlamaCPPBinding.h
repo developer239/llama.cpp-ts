@@ -13,6 +13,7 @@ private:
 
     Napi::Value Initialize(const Napi::CallbackInfo& info);
     Napi::Value RunQuery(const Napi::CallbackInfo& info);
+    Napi::Value RunQueryStream(const Napi::CallbackInfo& info);
 
     std::unique_ptr<LlamaWrapper> llama_;
 };

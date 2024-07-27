@@ -9,6 +9,7 @@ Napi::Object LlamaCPPBinding::Init(Napi::Env env, Napi::Object exports) {
     Napi::Function func = DefineClass(env, "LlamaCPP", {
         InstanceMethod("initialize", &LlamaCPPBinding::Initialize),
         InstanceMethod("runQuery", &LlamaCPPBinding::RunQuery),
+        InstanceMethod("runQueryStream", &LlamaCPPBinding::RunQueryStream)
     });
 
     constructor = Napi::Persistent(func);
@@ -57,4 +58,25 @@ Napi::Value LlamaCPPBinding::RunQuery(const Napi::CallbackInfo& info) {
 
     std::string response = llama_->RunQuery(prompt, max_tokens);
     return Napi::String::New(env, response);
+}
+
+Napi::Value LlamaCPPBinding::RunQueryStream(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 2 || !info[0].IsString() || !info[1].IsFunction()) {
+        Napi::TypeError::New(env, "String and function expected").ThrowAsJavaScriptException();
+        return env.Null();
+    }
+
+    std::string prompt = info[0].As<Napi::String>().Utf8Value();
+    Napi::Function callback = info[1].As<Napi::Function>();
+    size_t max_tokens = 1000;
+    if (info.Length() > 2 && info[2].IsNumber()) {
+        max_tokens = info[2].As<Napi::Number>().Uint32Value();
+    }
+
+    llama_->RunQueryStream(prompt, max_tokens, [&env, &callback](const std::string& token) {
+        callback.Call(env.Global(), {Napi::String::New(env, token)});
+    });
+
+    return env.Undefined();
 }
