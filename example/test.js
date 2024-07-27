@@ -16,18 +16,9 @@ async function main() {
     console.log("Response:", response);
 
     console.log("\nRunning a streaming query:");
-    const stream = llama.runQueryStream("Tell me a short story about a robot.", 1000);
-
-    stream.on('data', (chunk) => {
-        process.stdout.write(chunk);
-    });
-
-    stream.on('end', () => {
-        console.log("\n\nStreaming completed.");
-    });
-
-    // Wait for the stream to end
-    await new Promise(resolve => stream.on('end', resolve));
+    llama.runQueryStream("Tell me a short story about a robot.", (token) => {
+        console.log(token);
+    }, 1000);
 }
 
 main().catch(console.error);
