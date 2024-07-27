@@ -1,0 +1,43 @@
+{
+  "name": "llama.cpp-ts",
+  "version": "0.0.1",
+  "description": "Node.js bindings for LlamaCPP, a C++ library for running language models.",
+  "repository": "https://github.com/developer239/llama.cpp-ts",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "node-addon-api": "6.1.0",
+    "cmake-js": "7.2.1"
+  },
+  "scripts": {
+    "install": "cmake-js compile",
+    "build": "cmake-js compile"
+  },
+  "keywords": [
+    "node",
+    "language-model",
+    "c++",
+    "cpp",
+    "node-addon-api",
+    "cmake",
+    "cmake-js",
+    "llama",
+    "llama.cpp",
+    "3.1"
+  ],
+  "devDependencies": {
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/commit-analyzer": "9.0.2",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/npm": "10.0.3",
+    "@semantic-release/release-notes-generator": "10.0.3",
+    "semantic-release": "21.0.1"
+  }
+}
