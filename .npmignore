@@ -1,3 +1,4 @@
 node_modules/
 cpp/build/
-cpp/llama-cpp/externals
+cpp/externals
+.gitmodules
