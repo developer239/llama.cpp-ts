@@ -17,7 +17,8 @@
     "cmake-js": "7.3.0"
   },
   "scripts": {
-    "install": "cmake-js compile -d cpp print-configure",
+    "postinstall": "npm run submodules && npm run build",
+    "submodules": "git submodule update --init --recursive",
     "build": "cmake-js compile -d cpp print-configure",
     "example": "node example/index.js"
   },
