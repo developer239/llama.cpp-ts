@@ -2,6 +2,7 @@
 
 #include <napi.h>
 #include "llama-wrapper.h"
+#include "TokenStream.h"
 
 class LlamaCPPBinding : public Napi::ObjectWrap<LlamaCPPBinding> {
 public:

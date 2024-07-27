@@ -15,6 +15,8 @@ add_library(${PROJECT_NAME} SHARED
   src/main.cpp
   src/LlamaCPPBinding.h
   src/LlamaCPPBinding.cpp
+  src/TokenStream.h
+  src/TokenStream.cpp
   ${CMAKE_JS_SRC}
 )
 

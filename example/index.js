@@ -1,30 +1,36 @@
 const Llama = require('../index.js');
 
 async function main() {
-    const llama = new Llama();
+  //
+  // Initialize
+  const llama = new Llama();
+  const modelPath = __dirname + "/models/Meta-Llama-3.1-8B-Instruct-Q3_K_S.gguf";
 
-    llama.initialize(__dirname + "/models/Meta-Llama-3.1-8B-Instruct-Q3_K_S.gguf");
+  if (!llama.initialize(modelPath)) {
+    console.error("Failed to initialize the model");
+    return;
+  }
 
-    console.log("\nRunning a simple query:");
-    const response = llama.runQuery("Tell me a short story.", 100);
-    console.log("Response:", response);
+  //
+  // Query
+  const query = "Hello.";
 
-    console.log("\nRunning a streaming query:");
-    let streamingResponse = "";
-    llama.runQueryStream(
-        "List 5 interesting facts about space.",
-        (token) => {
-            process.stdout.write(token);
-            streamingResponse += token;
-        },
-        200
-    );
+  //
+  // Sync query
+  const response = llama.runQuery(query, 100);
+  console.log(response)
 
-    // Wait for the streaming to finish
-    await new Promise(resolve => setTimeout(resolve, 5000));
+  //
+  // Stream query
+  const tokenStream = llama.runQueryStream(query, 200);
+  let streamingResponse = "";
 
-    console.log("\n\nFull streaming response:");
-    console.log(streamingResponse);
+  while (true) {
+    const token = await tokenStream.read();
+    if (token === null) break;
+    process.stdout.write(token);
+    streamingResponse += token;
+  }
 }
 
 main().catch(console.error);
