@@ -1,3 +1,13 @@
+## [1.0.9](https://github.com/developer239/llama.cpp-ts/compare/v1.0.8...v1.0.9) (2024-07-27)
+
+
+### Bug Fixes
+
+* ci ([1423f36](https://github.com/developer239/llama.cpp-ts/commit/1423f363d2c36a44efa8243ed1cafa228b4e474b))
+* ci ([d5f1e9d](https://github.com/developer239/llama.cpp-ts/commit/d5f1e9dd3692be6082988c96d23bb1d70a9e54dc))
+* ci ([25b44ec](https://github.com/developer239/llama.cpp-ts/commit/25b44ec671957168c8968b1a4eac21b58cba2221))
+* npm ([ee4911c](https://github.com/developer239/llama.cpp-ts/commit/ee4911c837b7ebb3988f6cbdc9944c1222cc067c))
+
 ## [1.0.8](https://github.com/developer239/llama.cpp-ts/compare/v1.0.7...v1.0.8) (2024-07-27)
 
 
