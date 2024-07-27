@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/developer239/llama.cpp-ts/compare/v1.0.1...v1.0.2) (2024-07-27)
+
+
+### Bug Fixes
+
+* npm configuration ([2e37c51](https://github.com/developer239/llama.cpp-ts/commit/2e37c51b16b6823bf3d96745958e915e58cec53c))
+
 ## [1.0.1](https://github.com/developer239/llama.cpp-ts/compare/v1.0.0...v1.0.1) (2024-07-27)
 
 
