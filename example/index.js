@@ -1,4 +1,4 @@
-const Llama = require('../index.js');
+const { Llama } = require('../index.js');
 
 async function main() {
   //

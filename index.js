@@ -1,3 +1,5 @@
 const { LlamaCPP } = require('./cpp/build/Release/llamacpp_node_bindings.node');
 
-module.exports = LlamaCPP;
+module.exports = {
+  Llama: LlamaCPP
+}
