@@ -20,8 +20,14 @@ jobs:
         with:
           node-version: 18
 
+      - name: Update submodules
+        run: git submodule update --init --recursive
+
       - name: Install dependencies
         run: yarn install
+
+      - name: Check files
+        run: ls -R
 
       - name: Semantic release
         run: npx semantic-release
