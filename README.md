@@ -14,6 +14,8 @@ LlamaCPP-ts is a Node.js binding for the [LlamaCPP](https://github.com/developer
 
 You can find some models [here](https://huggingface.co/bullerwins/Meta-Llama-3.1-8B-Instruct-GGUF/tree/main)
 
+Example is using this one [Meta-Llama-3.1-8B-Instruct-Q3_K_S.gguf](https://huggingface.co/bullerwins/Meta-Llama-3.1-8B-Instruct-GGUF/resolve/main/Meta-Llama-3.1-8B-Instruct-Q3_K_S.gguf).
+
 ## Installation
 
 Ensure that you have [CMake](https://cmake.org) installed on your system:
@@ -41,7 +43,7 @@ const llama = new Llama();
 const initialized = llama.initialize('./path/to/your/model.gguf');
 
 if (initialized) {
-  const response: string = llama.runQuery("Tell me a joke about programming.", 100);
+  const response: string = llama.runQuery("Tell me a story.", 100);
   console.log(response);
 } else {
   console.error("Failed to initialize the model.");
