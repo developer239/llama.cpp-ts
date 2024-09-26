@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/developer239/llama.cpp-ts/compare/v1.1.0...v1.2.0) (2024-09-26)
+
+
+### Features
+
+* update llama-chat ([762b0ca](https://github.com/developer239/llama.cpp-ts/commit/762b0ca5519a3e5e187dfede1c2ab4c1a1df700c))
+
 # [1.1.0](https://github.com/developer239/llama.cpp-ts/compare/v1.0.10...v1.1.0) (2024-09-26)
 
 
