@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/developer239/llama.cpp-ts/compare/v1.0.10...v1.1.0) (2024-09-26)
+
+
+### Features
+
+* use new llama wrapper ([01107f9](https://github.com/developer239/llama.cpp-ts/commit/01107f975bdfe323c240e202e514c10ab881e974))
+
 ## [1.0.10](https://github.com/developer239/llama.cpp-ts/compare/v1.0.9...v1.0.10) (2024-07-27)
 
 

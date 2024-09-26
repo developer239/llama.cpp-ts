@@ -1,6 +1,6 @@
 {
   "name": "llama.cpp-ts",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "description": "Node.js bindings for LlamaCPP, a C++ library for running language models.",
   "repository": "https://github.com/developer239/llama.cpp-ts",
   "main": "index.js",
