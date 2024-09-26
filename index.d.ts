@@ -4,7 +4,8 @@ export class TokenStream {
 
 export class Llama {
   constructor();
-  initialize(modelPath: string, contextSize?: number): boolean;
-  runQuery(prompt: string, maxTokens?: number): string;
-  runQueryStream(prompt: string, maxTokens?: number): TokenStream;
+  initialize(modelPath: string, modelParams?: object, contextParams?: object): boolean;
+  setSystemPrompt(systemPrompt: string): void;
+  prompt(userMessage: string): TokenStream;
+  resetConversation(): void;
 }

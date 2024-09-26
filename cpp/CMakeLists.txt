@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(${CMAKE_JS_INC})
 
 # Add LlamaCPP submodule library
-add_subdirectory(${CMAKE_SOURCE_DIR}/externals/llama-cpp)
+add_subdirectory(${CMAKE_SOURCE_DIR}/externals/llama-chat)
 
 # Define the Node.js addon target
 add_library(${PROJECT_NAME} SHARED
@@ -23,9 +23,9 @@ add_library(${PROJECT_NAME} SHARED
 # Set target output name to 'addon.node'
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 
-# Link the LlamaCPP library and cmake-js provided Node.js runtime libraries
+# Link the LlamaChat library and cmake-js provided Node.js runtime libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
-  LlamaCPP
+  LlamaChat
   ${CMAKE_JS_LIB}
 )
 
@@ -44,7 +44,7 @@ string(REGEX REPLACE "[\r\n\"]" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
 target_include_directories(${PROJECT_NAME}
   PRIVATE
     ${NODE_ADDON_API_DIR}
-    ${CMAKE_SOURCE_DIR}/externals/llama-cpp/src  # Add this line
+    ${CMAKE_SOURCE_DIR}/externals/llama-chat/src  # Add this line
 )
 
 # define NAPI_VERSION

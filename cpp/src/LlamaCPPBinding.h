@@ -1,7 +1,7 @@
 #pragma once
 
 #include <napi.h>
-#include "llama-wrapper.h"
+#include "llama-chat.h"
 #include "TokenStream.h"
 
 class LlamaCPPBinding : public Napi::ObjectWrap<LlamaCPPBinding> {
@@ -13,8 +13,9 @@ private:
     static Napi::FunctionReference constructor;
 
     Napi::Value Initialize(const Napi::CallbackInfo& info);
-    Napi::Value RunQuery(const Napi::CallbackInfo& info);
-    Napi::Value RunQueryStream(const Napi::CallbackInfo& info);
+    Napi::Value SetSystemPrompt(const Napi::CallbackInfo& info);
+    Napi::Value PromptStream(const Napi::CallbackInfo& info);
+    Napi::Value ResetConversation(const Napi::CallbackInfo& info);
 
-    std::unique_ptr<LlamaWrapper> llama_;
+    std::unique_ptr<LlamaChat> llama_;
 };
