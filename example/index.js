@@ -22,22 +22,21 @@ async function main() {
     for (const question of questions) {
         const tokenStream = llama.prompt(question);
 
-        process.stdout.write("Question: ");
-        process.stdout.write(question);
-        process.stdout.write("\n");
+        console.log("Question: ");
+        console.log(question);
+        console.log("");
 
-        process.stdout.write("Answer: ");
-
-        let streamingResponse = "";
+        console.log("Answer: ");
 
         while (true) {
             const token = await tokenStream.read();
-            if (token === null) break;
+            if (token === null) {
+                break;
+            }
             process.stdout.write(token);
-            streamingResponse += token;
         }
 
-        process.stdout.write("\n");
+        console.log("");
     }
 }
 
